@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Parallax Test</title>
+		<style>
+			*{
+				margin: 0;
+			}
+			html{
+				perspective: 1px;
+				height: 100vh;
+			}
+			
+			body{
+				transform-style: preserve-3d;
+			}
+			.parallax{
+				perspective:1px;
+				height: 100vh;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.layer{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				border: 2px solid grey;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.hide-me > *{
+				overflow: hidden;
+			}
+			.section{
+				height: 100vh;
+				width: 100%;
+				position: relative;
+				transform-style: preserve-3d;
+				
+			}
+			.super{
+				transform: translateZ(0px);
+				background-color: rgba(255,0,0,0.1);
+			}
+			.base{
+				transform: translateZ(-1px) scale(2) ;
+				background-color: rgba(0,255,0,0.1);
+			}
+			.back{
+				transform: translateZ(-2px) scale(3) ;
+				background-color: rgba(0,0,255,0.1);
+			}
+			
+											/* 		.other{
+				height: 100vh;
+				width: 100%;
+				position: relative;
+				transform-style: preserve-3d;
+				background-color: white;
+			} */
+			p{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			}
+			.base img{
+				width: 80%;
+				opacity: 0.2;
+				position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			}
+			.back img{
+				width: 110%;
+				opacity: 0.2;
+				position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+	/* 		mask: url("img/bear-mask.png") view-box; */
+			}
+			
+			.back::after{
+				content: '';
+			}
+
+			#bear-mask{
+				width: 76%;
+				position: absolute;
+			left: 50%;
+			top: 50%;
+				transform: translate(-48%, -51%);
+				display: none;
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="parallax">
+			<div class="section">
+				<div class="layer super"><p>Super</p></div>
+				<div class="layer base"><p>Base</p></div>
+				<!-- <div class="layer back"><p>Back</p></div> -->
+			</div>
+			<!-- <div class="other"></div> -->
+			<div class="section hide-me">
+				<div class="layer super"><p>Super</p></div>
+				<div class="layer base">
+					<img id="bear-sketch"src="img/Main-Bear.png" alt="">
+				</div>
+		
+				<div class="layer back"><img src="img/hex-abstract.svg" alt="">
+				</div>
+			</div>
+			<div class="section">
+				<div class="layer super"><p>Super</p></div>
+				<div class="layer base"><p>Base</p></div>
+				<div class="layer back"><p>Back</p></div>
+			</div>
+		</div>
+	</body>
+</html>

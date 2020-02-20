@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Osprey II | Unity WebGL Player</title>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Osprey Unity.json"
+
+        );
+      window.onLoad = function(){
+            document.querySelector("#container").addEventListener('contextmenu',
+              function(e){
+                return false;
+              });
+          }
+    </script>
+    <style>
+      #container{
+        font-family: sans-serif;
+        display: grid;
+        grid-template-columns: 1fr 600px 1fr;
+      }
+      .col{
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body oncontextmenu="return false;">
+    <main id="container" >
+      <div class="col">
+        <h1>Ospry II - Unity</h1>
+        <p>Top-Down Space Shoot-em-up prototype based on the game <a href="https://en.wikipedia.org/wiki/Ikaruga" target="_blank">Ikaruga</a> by <a href="http://www.treasure-inc.co.jp/" target="_blank">Treasure</a>, built in C# using the <a href="https://unity.com/" target="_blank">Unity</a> game engine.</p>
+        <h2>Controls</h2>
+        <p>Movement: Arrow Keys or WASD</p>
+        <p>Primary Fire: Z</p>
+        <p>Color Swap: X</p>
+        <p>Homing Laser Shot: C</p>
+
+      </div>
+      <div id="gameContainer" style="width: 600px; height: 900px; margin: auto"></div>
+      <div class="col"><p>&nbsp;</p></div>
+    </main>
+  </body>
+</html>
